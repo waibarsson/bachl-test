@@ -1,60 +1,58 @@
 :root {
-    /* Industrial Premium Design System - Targeted for Construction Pro (35-60) */
-    --obsidian: #1a1a1c;
-    /* Lighter, more like dark concrete/slate */
-    --obsidian-alt: #242426;
-    --concrete: #b2bec3;
-    --aluminum: linear-gradient(135deg, #e0e0e0 0%, #909090 100%);
+    /* Industrial Premium Design System - White Mode */
+    --obsidian: #f8f9fa;
+    /* Now a very clean off-white */
+    --obsidian-alt: #ffffff;
+    /* Pure white for cards */
+    --concrete: #4a4a4a;
+    /* Darker concrete for contrast */
+    --aluminum: linear-gradient(135deg, #2d2d2d 0%, #000000 100%);
 
-    /* Deeper, more mature red - Less neon, more brick/steel */
+    /* Deep mature red - Preserved */
     --liquid-ruby: linear-gradient(135deg, #a60f1b 0%, #70080e 100%);
     --liquid-ruby-hot: linear-gradient(135deg, #c91221 0%, #a60f1b 100%);
 
-    --glass: rgba(255, 255, 255, 0.04);
-    --glass-heavy: rgba(20, 20, 22, 0.95);
-    /* More opaque, less fragile */
-    --glass-highlight: rgba(255, 255, 255, 0.08);
+    --glass: rgba(0, 0, 0, 0.03);
+    /* Subtle dark glass for light bg */
+    --glass-heavy: rgba(255, 255, 255, 0.95);
+    /* White frosted glass */
+    --glass-highlight: rgba(0, 0, 0, 0.05);
 
-    --text-pure: #f0f0f0;
-    /* Softened white for better readability */
-    --pure-white: #ffffff;
-    --text-dim: #a0a0a0;
-    --ruby-glow: rgba(166, 15, 27, 0.25);
-    /* Subtler glow */
+    --text-pure: #3f3f3f;
+    /* Dark text for readability */
+    --pure-white: #3f3f3f;
+    /* Inverted for logic preservation in some places */
+    --text-dim: #555555;
+    --ruby-glow: rgba(166, 15, 27, 0.15);
 
-    /* Snappier, more mechanical transitions */
     --transition: all 0.4s ease-out;
     --bounce: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-    /* Tighter bounce */
 
-    --shadow-ruby: 0 5px 20px -5px rgba(166, 15, 27, 0.4);
-    --border-glass: 1px solid rgba(255, 255, 255, 0.1);
-    --border-glow: 1px solid rgba(255, 255, 255, 0.2);
+    --shadow-ruby: 0 5px 20px -5px rgba(166, 15, 27, 0.3);
+    /* Subtle grey borders for structure */
+    --border-glass: 1px solid rgba(0, 0, 0, 0.08);
+    --border-glow: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-/* --- CUSTOM SCROLLBAR (Industrial) --- */
+/* --- CUSTOM SCROLLBAR (Industrial Light) --- */
 ::-webkit-scrollbar {
     width: 10px;
-    /* Thicker for easier grabbing */
 }
 
 ::-webkit-scrollbar-track {
-    background: #111;
+    background: #e0e0e0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #444;
+    background: #a0a0a0;
     border-radius: 2px;
-    /* Square/technical */
-    border: 2px solid #111;
+    border: 2px solid #e0e0e0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #666;
+    background: #70080e;
+    /* Red accent on grab */
 }
-
-/* --- NO CUSTOM CURSOR --- */
-/* Removed to prioritize usability and familiarity for this demographic */
 
 /* --- PRELOADER --- */
 #preloader {
@@ -76,7 +74,7 @@
     opacity: 0;
     transform: scale(0.95);
     animation: preloaderReveal 1.5s infinite alternate ease-in-out;
-    filter: drop-shadow(0 0 10px rgba(166, 15, 27, 0.3));
+    filter: drop-shadow(0 0 10px rgba(166, 15, 27, 0.2));
 }
 
 @keyframes preloaderReveal {
@@ -98,12 +96,9 @@
     left: 0;
     width: 0%;
     height: 4px;
-    /* Thicker visibility */
     background: #c91221;
-    /* Solid color over gradient for clarity */
     z-index: 10002;
     box-shadow: none;
-    /* Cleaner */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
@@ -113,7 +108,6 @@
     padding: 0;
     box-sizing: border-box;
     cursor: default;
-    /* Standard cursor */
 }
 
 a,
@@ -123,7 +117,10 @@ button,
 }
 
 body {
-    background: var(--obsidian);
+    background: #f0f2f5;
+    /* Fallback */
+    background: radial-gradient(circle at 10% 20%, rgb(248, 249, 250) 0%, rgb(235, 237, 240) 90%);
+    /* Subtle light gradient baselayer */
     color: var(--text-pure);
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
@@ -131,7 +128,7 @@ body {
     position: relative;
 }
 
-/* GRAIN TEXTURE - Subtler, concrete paper feel */
+/* GRAIN TEXTURE - Kept but lighter blending */
 body::before {
     content: "";
     position: fixed;
@@ -141,24 +138,27 @@ body::before {
     height: 100%;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    /* Increased opacity for light mode visibility */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    /* Better for noise on white */
 }
 
-/* BACKGROUND ACCENTS - Engineered precision rather than neon chaos */
+/* BACKGROUND ACCENTS - Architectural Shadows */
 body::after {
     content: '';
     position: fixed;
-    top: -30%;
-    right: -10%;
-    /* Shifted to right */
-    width: 60vw;
-    height: 60vw;
-    /* Dark Deep Red, very subtle */
-    background: radial-gradient(circle, rgba(166, 15, 27, 0.15) 0%, transparent 65%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
+    background:
+        linear-gradient(115deg, transparent 40%, rgba(0, 0, 0, 0.03) 40%, rgba(0, 0, 0, 0.03) 40.5%, transparent 40.5%),
+        linear-gradient(210deg, transparent 60%, rgba(0, 0, 0, 0.02) 60%, rgba(0, 0, 0, 0.02) 60.5%, transparent 60.5%);
     pointer-events: none;
-    /* Static, stable background */
+    /* This creates the hard-surface architectural folds seen in reference */
 }
 
 /* --- REVEAL ANIMATION --- */
@@ -214,14 +214,16 @@ h3 {
 }
 
 .logo img {
-    height: 50px;
+    height: 65px;
+    /* Increased size */
     display: block;
 }
 
 .logo {
-    background: var(--pure-white);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    background: transparent;
+    /* No frame */
+    padding: 0;
+    border-radius: 0;
     display: flex;
     align-items: center;
     transition: var(--transition);
@@ -298,7 +300,8 @@ nav a:hover {
 }
 
 .hero-badge {
-    color: var(--text-pure);
+    color: #ffffff;
+    /* Explicitly white for red background */
     background: var(--liquid-ruby);
     display: inline-block;
     padding: 0.4rem 1.2rem;
@@ -313,6 +316,8 @@ nav a:hover {
     font-size: 7rem;
     line-height: 0.85;
     margin-bottom: 2.5rem;
+    text-transform: none;
+    /* Allow lowercase */
 }
 
 .hero .highlight {
@@ -734,7 +739,8 @@ nav a:hover {
     font-size: 3.5rem;
     margin-top: 1rem;
     letter-spacing: -1px;
-    background: linear-gradient(180deg, #fff, #777);
+    background: linear-gradient(180deg, #3f3f3f, #666);
+    /* Dark gradient for white mode */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -754,19 +760,21 @@ nav a:hover {
 }
 
 .solution-card {
-    background: rgba(255, 255, 255, 0.015);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 4rem 1.5rem 2.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    /* Slight white fill */
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    /* Visible idle border */
+    padding: 2.5rem 1rem 1.5rem;
     text-align: center;
     border-radius: 4px;
     transition: var(--bounce);
     position: relative;
     overflow: hidden;
-    cursor: none;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 280px;
+    min-height: 220px;
 }
 
 /* Gradient Border Reveal Effect on Hover/Active */
@@ -776,12 +784,14 @@ nav a:hover {
     inset: 0;
     border-radius: 4px;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 50%);
+    background: linear-gradient(135deg, rgba(166, 15, 27, 0.2), transparent 50%);
+    /* Subtle red frame */
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     transition: 0.5s;
-    opacity: 0.5;
+    opacity: 1;
+    /* Always visible structure */
 }
 
 .solution-card:hover {
@@ -796,15 +806,15 @@ nav a:hover {
 }
 
 .solution-icon-wrap {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     color: #ef233c;
     /* Red icon by default */
     transition: var(--bounce);
@@ -882,8 +892,8 @@ nav a:hover {
 }
 
 .solution-icon-wrap svg {
-    width: 50px;
-    height: 50px;
+    width: 32px;
+    height: 32px;
 }
 
 /* --- PRODUCT PORTFOLIO (Grid) --- */
@@ -1407,7 +1417,7 @@ section {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: rgba(18, 18, 20, 0.8);
+    background: var(--concrete);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 0.8rem 1.2rem;
@@ -1447,10 +1457,15 @@ section {
 .widget-text {
     font-size: 0.75rem;
     font-weight: 800;
-    color: var(--text-pure);
+    color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.calc-widget:hover .widget-text {
+    color: var(--text-pure);
 }
 
 @media (max-width: 480px) {
@@ -1504,7 +1519,7 @@ section {
     transition: var(--bounce);
     position: relative;
     overflow: hidden;
-    cursor: none;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
